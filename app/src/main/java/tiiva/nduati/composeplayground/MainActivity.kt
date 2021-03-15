@@ -3,7 +3,9 @@ package tiiva.nduati.composeplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -19,12 +21,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             myApp{
-                Greeting("Android plus Nick")
+//                Greeting("Android plus Nick")
+                myScreenshotContent()
             }
         }
     }
 
 }
+@Composable
+fun myScreenshotContent() {
+    Column {
+        Greeting("Android")
+        Divider(color = Color.Black)
+        Greeting("there")
+    }
+}
+
 @Composable
 fun myApp(content: @Composable () -> Unit) {
     ComposePlaygroundTheme {
@@ -44,6 +56,7 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     myApp{
-        Greeting("Android plus Nick")
+//        Greeting("Android plus Nick")
+        myScreenshotContent()
     }
 }
