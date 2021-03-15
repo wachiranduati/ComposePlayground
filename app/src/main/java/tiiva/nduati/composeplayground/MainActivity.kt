@@ -18,17 +18,19 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            myApp()
+            myApp{
+                Greeting("Android plus Nick")
+            }
         }
     }
 
 }
 @Composable
-fun myApp() {
+fun myApp(content: @Composable () -> Unit) {
     ComposePlaygroundTheme {
         // A surface container using the 'background' color from the theme
         Surface(color = Color.Yellow) {
-            Greeting("Android plus Nick")
+            content()
         }
     }
 }
@@ -41,5 +43,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    myApp()
+    myApp{
+        Greeting("Android plus Nick")
+    }
 }
